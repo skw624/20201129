@@ -9,7 +9,7 @@
 
 <body>
     <xmp>
-        jQueyry를 사용하여 "Hello, jQery!!!!" 를 출력한다.
+        jQueyry를 사용하여 "Hello, jQuery!!!!" 를 출력한다.
     </xmp>
     <hr />
 
@@ -17,7 +17,21 @@
         <p></p>
         <button>click me</button>
     </div>
+
+    
     
 </body>
 
 </html>
+
+<script src="../jquery-3.4.1.js"></script>
+<script>
+    $('#app>button').click(function() {
+        $('#app>p').text("Hello, World");
+    });
+
+    //$('#app>button').on("click", function() {
+    //    $('#app>p').text("Hello, World");
+    //});
+
+</script>
