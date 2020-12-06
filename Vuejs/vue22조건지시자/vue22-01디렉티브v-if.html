@@ -50,7 +50,7 @@
 
     <h2>
         v-if 연습 1. 
-        #app1 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설쟁하면 될까? 
+        #app1 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설정하면 될까? 
     </h2>
     <div id="app1">
         <h3 v-if="awesome">Vue is awesome!</h3>
@@ -59,7 +59,7 @@
 
     <h2>
         v-else 연습 2
-        #app2 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설쟁하면 될까?
+        #app2 인스턴스 data 프로퍼티(속성) awesome 에 어떤값을 설정하면 될까?
     </h2>
     <div id="app2">
         <h3 v-if="awesome">Vue is awesome!</h3>
@@ -85,7 +85,7 @@
     </div>
 
     <h2>v-if/v-else-if/v-else 연습 4 : 실습</h2>
-    <div id="app5">
+    <div id="app4">
         <button v-on:click="clickBind">클릭</button>
         <span v-if="type === 1">
             A
@@ -104,4 +104,151 @@
 
 </html>
 
+
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"> /* axios 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"> /* vue 라우터 플러그인 임포트 */</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
+<script>
+    new Vue({
+        /* edtmc^2w */
+        el: "#app1",
+        data: {
+            awesome : true,
+    
+        },
+        //template: ``,
+        methods: {
+    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    new Vue({
+        /* edtmc^2w */
+        el: "#app2",
+        data: {
+            awesome : false,
+    
+        },
+        //template: ``,
+        methods: {
+    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    new Vue({
+        /* edtmc^2w */
+        el: "#app3",
+        data: {
+            awesome: true,
+    
+        },
+        //template: ``,
+        methods: {
+            clickBind: function(event) {
+                if(this.$data.awesome == true) {
+                    this.$set(this.$data, "awesome", false);
+                } else {
+                    this.$set(this.$data, "awesome", true)
+                }
+            }    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+
+    new Vue({
+        /* edtmc^2w */
+        el: "#app4",
+        data: {
+            type : 1,
+    
+        },
+        //template: ``,
+        methods: {
+            clickBind: function(event) {
+                console.log(event.target);
+                if(this.$data.type === 1) {
+                    // this.$data.type = this.$data.type + 1;
+                    this.$set(this.$data, "type", 2);
+                } else if(this.$data.type === 2) {
+                    this.$set(this.$data, "type", 3);
+                } else if(this.$data.type === 3) {
+                    this.$set(this.$data, "type", 0);
+                } else {
+                    this.$set(this.$data, "type", 1);
+                }
+
+                /*
+                // 나머지 연산자를 이용하여 개선
+                var val = (this.$data.type+1) % 4;
+                this.$set(this.$data, "type", val);
+                */
+                
+            }
+    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    
+    
+    
+</script>

@@ -1,0 +1,95 @@
+201129
+DAY 1
+Vue
+인스턴스와 속성. 컴포넌트 만들기 
+상태  -변수
+지시자(바인딩, 화면과 데이터 결합)
+라우팅 - a태그와 같이 하나의 페이지에서 위치이동
+
+프로젝트 단위로 스니펫설정해서 사용
+
+html  ->  javascript 
+     (DOM)
+
+객체 내부에 있는 함수 : 메서드
+
+html 태그는 자바스크립트 객체로 바뀐다.
+
+함수정의 : 표현식, 선언식 this의 처리방식이 다름
+
+뷰 모델 디자인 패턴
+Model => data
+View => 화면
+
+MVVM : model->view, view->model
+ - Angular 1
+ - vue : v-model이라는 지시자 사용
+ - 입력을 사용하는 태그에서 사용
+
+Flux : 페북에서 좋아요 갯수 동기화하기 위해 만듦
+ - react -> redux
+ - vue -> vuex
+
+201206 
+DAY 2
+Babel : ES6->ES5 컴파일
+Webpack : 파일을 결합
+
+Vue 인스턴스 : 컴포넌트 조합기
+ - el, data, methods, components
+라이프사이클 : mounted, updated
+
+헷갈리는 개념
+methods : 이벤트 핸들러
+computed / watch : watch-서버호출
+
+data속성의 값을 직접 바꾸면 안된다.->불변객체(복제후변
+this.$set(object, key, value) 방식으로 변경
+-data타입에 따라 매개변수가 다름
+
+spread연산자 : 배열, 객체
+
+v-text 디렉티브 = innerText속성 = {{ }}
+
+이벤트 바인딩
+- 이벤트 취소 : return false;로 하면 안된다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

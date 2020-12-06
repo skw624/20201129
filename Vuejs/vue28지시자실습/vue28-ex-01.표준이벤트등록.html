@@ -67,12 +67,12 @@
         </xmp>
         <ul>
             <li>
-                <a class="image3" href="../images/image3.jpg">
+                <a class="image3" href="../images/image3.jpg" v-on:click="imageclick">
                     강아지 사진
                 </a>
             </li>
             <li>
-                <a class="image3" href="../images/image4.jpg">
+                <a class="image3" href="../images/image4.jpg" v-on:click="imageclick">
                     고양이 사진
                 </a>
             </li>
@@ -81,7 +81,7 @@
         <img id="img2" v-bind:src="img_image3" />
         <hr />
 
-        <xmp>
+        <!-- <xmp>
             이미지 위에 마우스를 올리거나 내리면 src 에 있는 값을 "img" 태그에 나오게 하시오
             이미지에 mouseover 와 mouseout 이벤트를 핸들러를 작성하시오.
             mouseover 이벤트를 핸들러 ==> imageover
@@ -128,7 +128,7 @@
             blur 이벤트 핸들러 ==> inputblur. outline: none 설정
         </xmp>
         <input type="text" id="ID" />
-        <hr />
+        <hr /> -->
 
     </div>
     
@@ -138,5 +138,48 @@
 
 </html>
 
+
 <!-- vue 플러그인 임포트   -->
-
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"> /* axios 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"> /* vue 라우터 플러그인 임포트 */</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
+<script>
+    new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            img_image3: '',
+    
+        },
+        //template: ``,
+        methods: {
+            imageclick: function(event) {
+                console.log(event.target);
+                console.log(this.$data);
+                event.stopPropagation();
+                
+            },
+    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    
+</script>
+

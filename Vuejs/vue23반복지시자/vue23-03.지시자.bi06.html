@@ -17,10 +17,20 @@
     <pre>
 
       v-for 지시자를 사용하여 자신이 좋아하는 가수들을 출력하는 테이블을 작성하여 본다.
+
+      input 태그를 3개 추가하고 "추가" 버튼을 클릭하면 해당 입력값을 이용하여 객체를 만들고 
+      만들어진 객체를 object array에 추가한다.
+      
     </pre>
     <hr>
 
-    <div id="app" class="col-md-10 offset-md-1">
+    <div id="app" class="col-md-10 offset-md-1">       
+        <button v-on:click="addTable">추가</button>
+        <br>
+        <label for="">이름</label><input v-model:value="name">
+        <label for="">전화번호</label><input v-model:value="tel">
+        <label for="">주소</label><input v-model:value="address">
+
         <table id="list" class="table-bordered">
             <thead>
                 <tr class="bg-warning text-white text-center">
@@ -48,4 +58,58 @@
 
 </html>
 
+
 <!-- vue 플러그인 임포트   -->
+<script src="https://unpkg.com/vue@2.5.16/dist/vue.js">/* vue 플러그인 임포트 */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"> /* JSX를 자바스크립트로 변환 */</script>
+<script src="https://unpkg.com/vuex@3.3.0/dist/vuex.js"> /* vuex 플러그인 임포트 */</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"> /* axios 플러그인 임포트 */</script>
+<script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"> /* vue 라우터 플러그인 임포트 */</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
+<script>
+    new Vue({
+        /* edtmc^2w */
+        el: "#app",
+        data: {
+            contacts : [
+                {name: 'XIA', tel: '010-1215-1215', address: 'lottetower'},
+                {name: '김준수', tel: '010-1986-1215', address: '시그니엘'},
+            ],  
+            name: '',
+            tel: '',
+            address: '',
+        },
+        //template: ``,
+        methods: {
+            // addTable: function(event) {
+            //     console.log(event.target);
+            //     this.$set(this.$data.contacts, this.$data.contacts.length, {name: '이름'+this.$data.contacts.length, tel: '010-1234-5678', address: '주소'});
+            // }    
+            addTable: function(event) {
+                console.log(event.target);
+
+                // 유효성 검사
+
+                // 객체 생성
+                var newObj = {name: this.$data.name, tel: this.$data.tel, address: this.$data.address};
+                this.$set(this.$data.contacts, this.$data.contacts.length, newObj);
+            }    
+        },
+        components: {
+    
+        }, 
+        computed: {
+    
+        },
+        watch: {
+    
+        },
+        mounted: function() {
+            console.log("mounted");
+        },
+        updated: function() {
+            console.log("updated");
+        },
+    });
+    
+</script>
