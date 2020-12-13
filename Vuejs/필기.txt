@@ -56,20 +56,25 @@ v-text 디렉티브 = innerText속성 = {{ }}
 
 201212
 DAY03
-v- 로 된 애들 변수로 선언
+v-bind 로 된 애들, 중괄호 안에 있는애들 변수로 선언
 
+vue26-05 
+data ==> 화면
+화면 ==> data : v-model
+v-model: input, textarea, select
+input[value]
+input[checked]
+textarea[value]
+select[selected]
 
+26-01 해보기
 
+컴포넌트
+부모->자식:props를 사용해서 데이터를 보냄
+자식->부모:이벤트를 사용해서 데이터를 보냄
 
-
-
-
-
-
-
-
-
-
+인스턴스: 데이터
+컴포넌트: 화면
 
 
 
