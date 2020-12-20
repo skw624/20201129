@@ -78,15 +78,7 @@
 
     <div id="app">
         <component-header></component-header>
-        <div id="content">
-            <p>Content</p>
-            <aside>
-                Aside
-            </aside>
-            <div id="content-list">
-                List
-            </div>
-        </div>
+        <component-content></component-content>
         <component-footer></component-footer>
     </div>
 
@@ -121,6 +113,47 @@
         </footer>    
         `,
     };
+
+    var componentAside = { 
+        /* pdtmc^2w */
+        template: `
+            <aside>
+                Aside
+            </aside>    
+        `,
+    };
+
+    var componentContentList = { 
+        /* pdtmc^2w */
+        template: `
+            <div id="content-list">
+                List
+            </div>
+    
+        `,
+    };
+    
+ 
+    var componentContent = { 
+        /* pdtmc^2w */
+        props: [] ,
+        data: function() {
+            return { }
+        },
+        template: `
+        <div id="content">
+            <p>Content</p>
+            <component-aside></component-aside>
+            <component-content-list></component-content-list>            
+        </div>    
+        `,
+        components: {
+            // 자식 컴포넌트 매핑 
+            "component-aside": componentAside,
+            "component-content-list": componentContentList,    
+        },
+    };
+    
     
     // 인스턴스 생성
     new Vue({
@@ -133,6 +166,7 @@
             */
             "component-header" : componentHeader,
             "component-footer" : componentFooter,
+            "component-content": componentContent,
         },         
     });
 
