@@ -230,12 +230,10 @@
 
         <!-- TodoInput -->
         <todo-input v-on:add-todo="addTodo"></todo-input>
-        
+
 
         <!-- TodoList -->
-        <todo-list v-bind:todo-items="todoItems"
-                      v-on:done-toggle="doneToggle"
-                      v-on:remove-todo="removeTodo">
+        <todo-list v-bind:todo-items="todoItems" v-on:done-toggle="doneToggle" v-on:remove-todo="removeTodo">
         </todo-list>
 
         <!-- TodoFooter -->
@@ -243,7 +241,7 @@
 
     </div>
 
-    
+
 
 </body>
 
@@ -259,7 +257,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> /* jQuery library */</script>
 <script>
     // 지역컴포넌트 만들기
-    var TodoHeader = { 
+    var TodoHeader = {
         template: `
         <header>
             <h1>TODO it!</h1>
@@ -267,7 +265,7 @@
         `,
     };
 
-    var TodoFooter = { 
+    var TodoFooter = {
         /* pdtmc^2w */
         template: `
         <div class="clearAllContainer">
@@ -275,20 +273,20 @@
         </div>  
         `,
         methods: {
-            clearAll: function(event) {
+            clearAll: function (event) {
                 this.$emit("clear-all");
 
             }
         },
-    };  
-    
-    var TodoList = { 
+    };
+
+    var TodoList = {
         /* pdtmc^2w */
-        props: ["todoItems"] ,
-        data: function() {
+        props: ["todoItems"],
+        data: function () {
             return {
 
-             }
+            }
         },
         template: `
         <section>
@@ -309,18 +307,18 @@
         </section>    
         `,
         methods: {
-            checked: function(done) {
-                if(done) {
+            checked: function (done) {
+                if (done) {
                     return "checked";
                 } else {
                     return null;
                 }
 
             },
-            doneToggle: function(id, index) {
-               this.$emit("done-toggle", id, index);
+            doneToggle: function (id, index) {
+                this.$emit("done-toggle", id, index);
             },
-            removeTodo: function(id, index) {
+            removeTodo: function (id, index) {
                 this.$emit("remove-todo", id, index);
             },
         },
@@ -328,13 +326,13 @@
 
     var TodoInput = {
         /* pdtmc^2w */
-        props: [] ,
-        data: function() {
+        props: [],
+        data: function () {
             return {
                 newTodoItem: null,
                 showModal: false,
 
-             }
+            }
         },
         template: `
         <div class="inputBox shadow">
@@ -366,7 +364,7 @@
         </div>   
         `,
         methods: {
-            addTodo: function(event) {
+            addTodo: function (event) {
                 this.$emit("add-todo", this.$data.newTodoItem);
                 // input태그 입력값 지우기
                 // this.$data.newTodoItem = ""
@@ -374,44 +372,44 @@
             },
 
         },
-        mounted: function() {
+        mounted: function () {
             console.log("TodoInput >> mounted");
             this.$refs.myFocus.focus();
         },
     };
-    
+
 
     //인스턴스 만들기
     new Vue({
         /* edtmc^2w */
         el: "#app",
         data: {
-            todoItems : [
+            todoItems: [
                 { id: 1, todo: "영화보기", done: false },
                 { id: 2, todo: "주말 산책", done: true },
                 { id: 3, todo: "ES6 학습", done: false },
                 { id: 4, todo: "잠실 야구장", done: false }
             ],
-    
+
         },
         //template: ``,
         methods: {
-            doneToggle: function(id, index) {
+            doneToggle: function (id, index) {
                 this.$data.todoItems[index].done = !this.$data.todoItems[index].done;
 
             },
-            removeTodo: function(id, index) {
-                this.$data.todoItems.splice(index,1);
+            removeTodo: function (id, index) {
+                this.$data.todoItems.splice(index, 1);
 
             },
-            clearAll: function() {
+            clearAll: function () {
                 this.$data.todoItems = [];
 
             },
-            addTodo: function(newTodoItem) {
+            addTodo: function (newTodoItem) {
                 var maxObj = null;
-                if(this.$data.todoItems.length > 0) {
-                    maxObj = this.$data.todoItems.reduce(function(previtem, nextitem) {
+                if (this.$data.todoItems.length > 0) {
+                    maxObj = this.$data.todoItems.reduce(function (previtem, nextitem) {
                         return previtem.id > nextitem.id ? previtem : nextitem;
                     });
                 } else {
@@ -422,37 +420,33 @@
                     }
                 }
                 console.log(maxObj);
-                var obj = {id: maxObj.id+1, todo: newTodoItem, done: false};
+                var obj = { id: maxObj.id + 1, todo: newTodoItem, done: false };
                 this.$set(this.$data.todoItems, this.$data.todoItems.length, obj);
 
-                
+
 
             }
-    
+
         },
         components: {
             "todo-header": TodoHeader,
             "todo-footer": TodoFooter,
             "todo-list": TodoList,
             "todo-input": TodoInput,
-    
-        }, 
+
+        },
         computed: {
-    
+
         },
         watch: {
-    
+
         },
-        mounted: function() {
+        mounted: function () {
             console.log("mounted");
         },
-        updated: function() {
+        updated: function () {
             console.log("updated");
         },
     });
-    
+
 </script>
-
-
-
-

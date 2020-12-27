@@ -71,46 +71,107 @@
 <body>
     <xmp>
         5개의 컴포넌트 만들기
-            ComponentHeader
-            ComponentContent
-            ComponentFooter
-            ComponentAside
-            ComponentContentList
+        ComponentHeader
+        ComponentContent
+        ComponentFooter
+        ComponentAside
+        ComponentContentList
     </xmp>
     <hr />
 
     <div id="app">
         <!-- ComponentHeader -->
-        <header>
-            Header
-        </header>
-
         <!-- ComponentContent -->
-        <div id="content">
-            <p>Content</p>
-
-            <!-- ComponentAside -->
-            <aside>
-                Aside
-            </aside>
-
-            <!-- ComponentContentList -->
-            <div id="content-list">
-                List
-            </div>
-        </div>
-
         <!-- ComponentFooter -->
-        <footer>
-            Footer
-        </footer>
     </div>
 </body>
 
 </html>
 
 <!-- react 플러그인 include   -->
-<!-- 주의: 사이트를 배포할 때는 'development.js'를 'production.min.js'로 대체하세요. -->
+<!-- 주의: 사이트를 배포할 때는 "development.js"를 "production.min.js"로 대체하세요. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js">/* JSX를 자바스크립트로 변환 */</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.development.js"> /* import { React} from "react"; */</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.development.js">/* import { ReactDOM } from "react-dom"; */</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.js"> /* import {Redux} from "redux"; */</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.2/react-redux.js">/* import {ReactRedux} from "react-redux"; */</script>
+<script type="text/babel">
 
+    console.log(React);
+    console.log(ReactDOM);
 
-
+    // ComponentHeader -->    
+    class ComponentHeader extends React.Component {
+        render() {
+            return (
+                <header>
+                    Header
+                </header>
+            );
+        }
+    }
+
+    // ComponentContent -->
+    class ComponentContent extends React.Component {
+        render() {
+            return (
+                <div id="content">
+                    <p>Content</p>
+
+                    {/* <!-- ComponentAside --> */}
+                    <ComponentAside></ComponentAside>
+
+                    {/* <!-- ComponentContentList -->*/}
+                    <ComponentContentList></ComponentContentList>
+                </div>
+            );
+        }
+    }
+
+    // ComponentFooter -->    
+    class ComponentFooter extends React.Component {
+        render() {
+            return (
+                <footer>
+                    Footer
+                </footer>
+            );
+        }
+    }
+
+    // ComponentAside -->    
+    class ComponentAside extends React.Component {
+        render() {
+            return (
+                <aside>
+                    Aside
+                </aside>
+            );
+        }
+    }
+
+    // ComponentContentList -->    
+    class ComponentContentList extends React.Component {
+        render() {
+            return (
+                <div id="content-list">
+                    List
+                </div>
+            );
+        }
+    }
+
+    //export default ComponentContentList;
+
+    ReactDOM.render(
+        <div>
+            <ComponentHeader></ComponentHeader>
+            <ComponentContent></ComponentContent>
+            <ComponentFooter></ComponentFooter>
+        </div>
+        , document.getElementById("app")
+    )
+</script>
