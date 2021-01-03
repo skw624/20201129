@@ -75,12 +75,26 @@
     class CompStyle extends React.Component {
         style = {
             // 컴포넌트 내부에서 사용할 인라인 스타일을 정의한다.
+            style1: {
+                /*
+                display: inline-block;
+                background-color: gray;
+                border: 10px solid black;
+                height: 63px; 
+                width: 228px; */
+                display: "inline-block",
+                backgroundColor: "gray",
+                border: "10px solid black",
+                height: "63px",
+                width: "228px",
+            }
 
         }
 
         render() {
             return (
-                <div>
+                <div style={this.style.style1}>
+                    컴포넌트
 
                 </div>
             );
@@ -88,4 +102,5 @@
     }
 
     //export default CompStyle;
+    ReactDOM.render(<CompStyle></CompStyle>, document.getElementById("app"));
 </script>
